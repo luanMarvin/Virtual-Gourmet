@@ -1,0 +1,17 @@
+model Recipe {
+  id          Int         @id @default(autoincrement())
+  dishType    String
+  diet        String
+  difficulty  String
+  name        String
+  rating      Float
+  isFavorite  Boolean
+  ingredients Ingredient[]
+}
+
+model Ingredient {
+  id       Int     @id @default(autoincrement())
+  name     String
+  recipe   Recipe? @relation(fields: [recipeId], references: [id])
+  recipeId Int?
+}
