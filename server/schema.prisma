@@ -1,3 +1,8 @@
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://dev_test:1234@localhost:5432/virtual-gourmet"
+}
+
 model Recipe {
   id          Int         @id @default(autoincrement())
   dishType    String
