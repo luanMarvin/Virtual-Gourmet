@@ -1,6 +1,10 @@
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://dev_test:1234@localhost:5432/virtual-gourmet"
+  url      = "postgresql://development_testing:1234@localhost:5432/virtual-gourmet"
+}
+
+generator client {
+  provider = "prisma-client-js"
 }
 
 model Recipe {
