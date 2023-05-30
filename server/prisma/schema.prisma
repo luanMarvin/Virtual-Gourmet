@@ -1,26 +1,26 @@
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://development_testing:1234@localhost:5432/virtual-gourmet"
+  url      = "postgresql://development_testing:1234@localhost:5432/virtual_gourmet"
 }
 
 generator client {
   provider = "prisma-client-js"
 }
 
-model Recipe {
-  id          Int         @id @default(autoincrement())
-  dishType    String
-  diet        String
-  difficulty  String
-  name        String
-  rating      Float
-  isFavorite  Boolean
-  ingredients Ingredient[]
+model recipe {
+  id                Int         @id @default(autoincrement())
+  dishType          String
+  diet              String
+  difficulty        String
+  name              String
+  rating            Float
+  preparationMethod String
+  ingredients       ingredient[]
 }
 
-model Ingredient {
-  id       Int     @id @default(autoincrement())
+model ingredient {
+  id       Int      @id @default(autoincrement())
   name     String
-  recipe   Recipe? @relation(fields: [recipeId], references: [id])
+  recipe   recipe?  @relation(fields: [recipeId], references: [id])
   recipeId Int?
 }
