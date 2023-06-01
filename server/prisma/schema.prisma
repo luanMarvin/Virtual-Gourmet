@@ -1,6 +1,6 @@
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://development_testing:1234@localhost:5432/virtual_gourmet"
+  url      = "postgresql://dev_user:1234@localhost:5432/virtual_gourmet?schema=virtual_gourmet_schema"
 }
 
 generator client {
