@@ -35,7 +35,12 @@ async function postInfo(ctx) {
   }
 }
 
+async function getRecipeInfos(){
+
+}
+
 module.exports = {
   getInfo,
   postInfo,
+  getRecipeInfos
 };

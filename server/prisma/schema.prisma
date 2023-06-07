@@ -8,7 +8,7 @@ generator client {
 }
 
 model recipe {
-  id                Int         @id @default(autoincrement())
+  id                Int              @id @default(autoincrement())
   dishType          String
   diet              String
   difficulty        String
@@ -16,11 +16,20 @@ model recipe {
   rating            Float
   preparationMethod String
   ingredients       ingredient[]
+  owner             users[]
 }
 
 model ingredient {
-  id       Int      @id @default(autoincrement())
+  id       Int       @id @default(autoincrement())
   name     String
-  recipe   recipe?  @relation(fields: [recipeId], references: [id])
+  recipe   recipe?   @relation(fields: [recipeId], references: [id])
   recipeId Int?
+}
+
+model users {
+  id              Int              @id @default(autoincrement())
+  user            Int
+  password        Int
+  recipes         recipe?          @relation(fields: [ownedRecipes], references: [id])
+  ownedRecipes Int?
 }
